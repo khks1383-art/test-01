@@ -1,1 +1,109 @@
-/* Add styles here */
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #1a1a1a;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23333333' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #e0e0e0;
+}
+
+.container {
+    background: linear-gradient(145deg, #2b2b2b, #1e1e1e);
+    padding: 40px 60px;
+    border-radius: 25px;
+    box-shadow:
+      10px 10px 30px rgba(0, 0, 0, 0.7),
+      -10px -10px 30px rgba(255, 255, 255, 0.05);
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff, 0 0 30px #00aaff;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1rem;
+    color: #a0a0a0;
+    margin-bottom: 40px;
+}
+
+.numbers-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    min-height: 80px;
+}
+
+.number {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Staggered animation for each number */
+.number:nth-child(1) { animation-delay: 0.1s; }
+.number:nth-child(2) { animation-delay: 0.2s; }
+.number:nth-child(3) { animation-delay: 0.3s; }
+.number:nth-child(4) { animation-delay: 0.4s; }
+.number:nth-child(5) { animation-delay: 0.5s; }
+.number:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.glowing-btn {
+    position: relative;
+    color: #00aaff;
+    cursor: pointer;
+    padding: 15px 35px;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.glowing-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00aaff;
+    border-radius: 15px;
+    filter: blur(20px);
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.glowing-btn:hover::before {
+    opacity: 1;
+}
+
+.glowing-txt {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    text-shadow: 0 0 5px #00aaff;
+}
