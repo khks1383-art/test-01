@@ -1,6 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
     const numbersSection = document.getElementById('numbers-section');
     const generateBtn = document.getElementById('generate-btn');
+    const themeBtn = document.getElementById('theme-btn');
+    const body = document.body;
+
+    // Theme Management
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    themeBtn.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme');
+        let newTheme = theme === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
 
     const getNumberColor = (number) => {
         if (number <= 10) return '#fbc400'; // Yellow
